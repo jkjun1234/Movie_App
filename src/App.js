@@ -8,7 +8,7 @@ function App() {
 
   const onChange = (event) => setToDo(event.target.value);
   const onSubmit = (event) => {
-    //preventDefault()  빈 값일때 해당 submit 동작 안하도록 하는 함수
+    //preventDefault()  빈 값일때 해당 submit 기본동작(새로고침) 안하도록 하는 함수
     event.preventDefault();   
     if(toDo === "") {
       // Todo 값이 비어있을경우 submit 함수 종료
