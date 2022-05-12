@@ -1,6 +1,6 @@
 import PropeTypes from 'prop-types';
 
-
+// Img, title, summary, genres 총 4개의 props 받음
 function Movie({coverImg, title, summary, genres}) {
     return (
     <div>
