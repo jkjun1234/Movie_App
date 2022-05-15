@@ -1,3 +1,6 @@
+import {useEffect, useState} from "react";
+import Movie from "../components/Movie";
+
 function Home() {
     const [loading, setLoading] = useState(true);   // 페이지 로딩 상태
     const [movies, setMovies] = useState([]);       // 영화 정보
@@ -39,4 +42,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Home; 

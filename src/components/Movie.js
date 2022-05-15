@@ -1,11 +1,14 @@
 import PropeTypes from 'prop-types';
+import {Link} from "react-router-dom";
+//Link 는 a href ="/" 의 링크 태그와 다르게 웹페이지가 빠르게 반응
+// 웹페이지전체가 새로고침 되지않음
 
 // Img, title, summary, genres 총 4개의 props 받음
 function Movie({coverImg, title, summary, genres}) {
     return (
     <div>
         <img src={coverImg} alt={title}/>
-        <h2>{title}</h2>
+        <h2><Link to="/movie">{title}</Link></h2>
         <p>{summary}</p>
         <ul>
             {genres.map((g) => (
