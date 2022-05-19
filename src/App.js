@@ -17,7 +17,8 @@ function App() {
   return ( 
   <Router>
     <Routes>
-      <Route path="movie" element={<Detail />} />
+      {/**:id 는 변하는 id 값을 받을수 있다.*/ }
+      <Route path="/movie/:id" element={<Detail />} />
       <Route path="/" element={<Home />} />
     </Routes>
   </Router>
