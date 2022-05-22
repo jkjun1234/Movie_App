@@ -10,11 +10,13 @@
 import { useParams } from "react-router-dom";
 // URL 의 변수 값을 확인 할수 있는 함수 
 // 여기선 movie/:id 값에서 넘어온 id 값을 확인 하는데 사용한다.
-
-import {useEffect} from "react";
+import MovieDetail from "../components/MovieDetail";
+import {useEffect, useState} from "react";
 
 function Detail() {
     const {id} = useParams();   // 동적 파라미터(URL) 값을 받아오기 movie/:id를 받아온다.
+    const [loading, setLoading] = useState(true);
+    
     const getDetail = async() => {  // await 는 async 함수 내부에 있지 않으면 사용할수 없으므로
         // getDetail 함수를 만들어 사용한다.
         // Movie detail json 코드 얻어오기
@@ -24,11 +26,22 @@ function Detail() {
             )
         ).json();
         console.log(json);
+        setLoading(false);  
     }
     useEffect(() => {
         getDetail();
     },[]);
-    return <h1>Detail</h1>
+ 
+    return (
+        // call MovieDetail.js
+       <div>
+           {
+            loading ?
+            <h1>Loading...</h1> :
+            <MovieDetail/>
+            }
+       </div>
+    );
 }
 
 export default Detail;
