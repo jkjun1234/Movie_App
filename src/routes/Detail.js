@@ -16,6 +16,7 @@ import {useEffect, useState} from "react";
 function Detail() {
     const {id} = useParams();   // 동적 파라미터(URL) 값을 받아오기 movie/:id를 받아온다.
     const [loading, setLoading] = useState(true);
+    const [movieDetail, setMovieDetail] = useState([]);
     
     const getDetail = async() => {  // await 는 async 함수 내부에 있지 않으면 사용할수 없으므로
         // getDetail 함수를 만들어 사용한다.
@@ -26,7 +27,8 @@ function Detail() {
             )
         ).json();
         console.log(json);
-        setLoading(false);  
+        setLoading(false); 
+        setMovieDetail(json.data.movie); 
     }
     useEffect(() => {
         getDetail();
@@ -38,7 +40,10 @@ function Detail() {
            {
             loading ?
             <h1>Loading...</h1> :
-            <MovieDetail/>
+            <MovieDetail 
+                title = {movieDetail.title}
+                large_cover_image = {movieDetail.large_cover_image}
+            />
             }
        </div>
     );
