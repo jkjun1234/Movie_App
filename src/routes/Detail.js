@@ -27,12 +27,15 @@ function Detail() {
             )
         ).json();
         console.log(json);
-        setLoading(false); 
-        setMovieDetail(json.data.movie); 
+        setMovieDetail(json.data.movie);
+        setLoading(false);
+        console.log("genres : ", json.data.movie.genres);
     }
     useEffect(() => {
         getDetail();
     },[]);
+
+    // console.log()
  
     return (
         // call MovieDetail.js
@@ -43,6 +46,10 @@ function Detail() {
             <MovieDetail 
                 title = {movieDetail.title}
                 large_cover_image = {movieDetail.large_cover_image}
+                background_image = {movieDetail.background_image}
+                description_intro = {movieDetail.description_intro}
+                description_full = {movieDetail.description_full}
+                genres = {movieDetail.genres}
             />
             }
        </div>

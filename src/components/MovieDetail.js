@@ -6,6 +6,14 @@ function MovieDetail({id, title, large_cover_image, background_image, descriptio
     return (
         <div>
             <img src={large_cover_image} alt={title}/>
+            <img src={background_image} alt={title}/>
+            <div><p>Intro:</p> {description_intro}</div>
+            <div><p>Full Intro:</p> {description_full}</div>
+            <ul>
+                {genres.map((g) => (
+                    <li key={g}>{g}</li>
+                ))}
+            </ul>
         </div>
     );
 }
